@@ -1,0 +1,39 @@
+name: "🏆 Missing achievement"
+description: Report an achievement that the guide does not cover.
+title: "[New achievement]: "
+labels: ["new-achievement", "needs-triage"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Achievement name
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description shown on GitHub
+      description: The text shown when you click the badge.
+  - type: textarea
+    id: requirements
+    attributes:
+      label: How it is earned (as far as you know)
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Official link, or links to several public profiles showing the badge.
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Confidence
+      options:
+        - Official (GitHub documented it)
+        - Community-reported (seen on multiple profiles)
+        - Unverified (single sighting / rumour)
+    validations:
+      required: true

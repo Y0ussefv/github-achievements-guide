@@ -1,0 +1,28 @@
+name: "📝 Documentation improvement"
+description: Suggest clearer wording, better examples, or structure changes.
+title: "[Docs]: "
+labels: ["documentation"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page(s)
+      placeholder: guides/getting-started.md
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What could be better?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+  - type: checkboxes
+    id: pr
+    attributes:
+      label: Contribution
+      options:
+        - label: I would like to open a pull request for this.

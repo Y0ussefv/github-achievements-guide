@@ -1,0 +1,10 @@
+# Link checker configuration: https://lychee.cli.rs
+exclude = [
+  # Pages that require sign-in, or URL templates
+  '^https://github\.com/sponsors/explore',
+  '^https://github\.com/settings',
+  '^https://github\.com/Y0ussefv/github-achievements-guide/(issues/new|security/advisories/new)',
+  '^https://example\.com',
+]
+accept = ["200..=299", "403", "429"]
+exclude_path = ["node_modules"]

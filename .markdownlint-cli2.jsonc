@@ -1,0 +1,12 @@
+{
+  "config": {
+    "default": true,
+    "MD013": false, // long lines are fine in prose and tables
+    "MD033": false, // inline HTML (img, details, div) is intentional
+    "MD041": false, // README starts with a centred banner
+    "MD024": { "siblings_only": true },
+    "MD028": false, // blank lines between alert blocks
+    "MD036": false  // emphasis used as labels
+  },
+  "ignores": ["node_modules/**"]
+}
