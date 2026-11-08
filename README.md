@@ -79,6 +79,16 @@ GitHub's own asset server and remain the property of GitHub, Inc.
 
 ➡️ Full index with requirement status: [`achievements/README.md`](achievements/README.md)
 
+### ⚡ Quick start: the three easiest badges
+
+You can earn these in one sitting on a repository you own:
+
+1. **YOLO** — open a pull request with a real improvement and merge it without a review ([guide](achievements/yolo.md)).
+2. **Pull Shark** — get a second pull request merged ([guide](achievements/pull-shark.md)).
+3. **Quickdraw** — close an issue within 5 minutes, for example one that a merged PR already solved ([guide](achievements/quickdraw.md)).
+
+Keep the changes genuine, and do this only on your own repositories.
+
 ## 📈 Tier thresholds
 
 Multi-level badges show a tier label (`x2`, `x3`, `x4`) and a different color.
