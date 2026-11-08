@@ -1,0 +1,48 @@
+name: PR checks
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  pr-hygiene:
+    name: PR hygiene
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Require a description, and sources for achievement changes
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          changed=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA")
+          echo "Changed files:"
+          echo "$changed"
+          if [ -z "$(printf '%s' "$PR_BODY" | tr -d '[:space:]')" ]; then
+            echo "::error::Please fill in the pull request template."
+            exit 1
+          fi
+          if echo "$changed" | grep -q '^achievements/'; then
+            if ! printf '%s' "$PR_BODY" | grep -Eq 'https?://'; then
+              echo "::error::Changes to achievements/ must list at least one source link in the PR description."
+              exit 1
+            fi
+          fi
+          echo "PR hygiene checks passed."
+      - name: Block files that look like secrets
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          if git diff --name-only "$BASE_SHA" "$HEAD_SHA" | grep -Ei '(\.env$|\.pem$|id_rsa|\.key$)'; then
+            echo "::error::Possible secret file in this PR."
+            exit 1
+          fi
+          echo "No secret-like files found."

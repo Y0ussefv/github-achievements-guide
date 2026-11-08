@@ -1,0 +1,60 @@
+name: "🐛 Incorrect achievement information"
+description: Something in the guide is wrong or outdated.
+title: "[Incorrect]: "
+labels: ["incorrect-info", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep the guide accurate! Please do **not** include tokens, private repository names or personal data.
+  - type: dropdown
+    id: achievement
+    attributes:
+      label: Achievement
+      options:
+        - Quickdraw
+        - YOLO
+        - Pull Shark
+        - Pair Extraordinaire
+        - Galaxy Brain
+        - Starstruck
+        - Public Sponsor
+        - Retired / unreleased / highlights
+        - General / other page
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      placeholder: achievements/pull-shark.md
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: What the guide currently says
+    validations:
+      required: true
+  - type: textarea
+    id: correct
+    attributes:
+      label: What is correct
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence / sources
+      description: Official link preferred. Otherwise describe what you did, when, and what happened (screenshots welcome).
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues for this problem.
+          required: true
+        - label: I removed any personal or sensitive information.
+          required: true

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: GitHub Support
+    url: https://support.github.com/
+    about: Problems with your own account, or a badge still missing after 24 hours? Contact GitHub directly.
+  - name: Security report
+    url: https://github.com/Y0ussefv/github-achievements-guide/security/advisories/new
+    about: Report security problems privately.
